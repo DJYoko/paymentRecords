@@ -12,7 +12,7 @@ export class Container extends React.Component {
     return (
 			<div>
 				root element here
-				<PaymentList />
+				<PaymentList state={store.getState()} />
 			</div>
     );
   }
