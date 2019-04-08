@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-// import { createStore } from 'redux'
+import store from './store'
 import {PaymentList} from './components/PaymentList';
-// import payments from './reducers/'
+
 
 const rootElement = document.getElementById('app');
-// const store = createStore(payments)
 
 export class Container extends React.Component {
   constructor(props) {
