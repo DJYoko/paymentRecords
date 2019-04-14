@@ -19,7 +19,12 @@ export class PaymentList extends Component {
 		return(
 			<div>
 		  {this.props.payments.map((payment) => {
-		    return <Payment payment="payment" key={payment.id}>
+		    return <Payment key={payment.id}
+					 id={payment.id}
+					 value={payment.value}
+					 name={payment.name}
+					 payed_at={payment.payed_at}
+				>
 					list component here
 				</Payment>;
 		  })}
