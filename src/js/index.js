@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import store from './store';
 import {PaymentList} from './components/PaymentList';
+import {Register} from './components/Register';
 
 export class Container extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ export class Container extends React.Component {
 					<div className="col-xs-6"><h4>Current Total:</h4></div>
 					<div className="col-xs-6"><h4>{total}</h4></div>
 				</div>
+				<Register />
 				<PaymentList payments={_state.payments} />
 			</div>
     );
