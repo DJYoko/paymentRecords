@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import store from './store'
+import store from './store';
 import {PaymentList} from './components/PaymentList';
 
 export class Container extends React.Component {
@@ -16,13 +16,11 @@ export class Container extends React.Component {
 		const total = this.sum(moneyArray);
     return (
 			<div>
-				root element here
-				<PaymentList payments={_state.payments} />
-
 				<div className="row">
-					<div className="col-xs-6"><h2>Current Total Money:</h2></div>
-					<div className="col-xs-6"><h2>{total}</h2></div>
+					<div className="col-xs-6"><h4>Current Total:</h4></div>
+					<div className="col-xs-6"><h4>{total}</h4></div>
 				</div>
+				<PaymentList payments={_state.payments} />
 			</div>
     );
   }
