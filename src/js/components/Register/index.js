@@ -13,7 +13,7 @@ export class Register extends Component {
 		this.onChangeName = this.onChangeName.bind(this);
 		this.onChangeValue = this.onChangeValue.bind(this);
 		this.onChangePayedAt = this.onChangePayedAt.bind(this);
-		this.onClicked = this.onClicked.bind(this);
+		this.onClick = this.onClick.bind(this);
   }
   render() {
 		return(
@@ -24,18 +24,18 @@ export class Register extends Component {
 					<span className="input-group-addon">円</span></div></div>
 		  		<div className="col-sm-3"><input className="form-control" type="date" name="payed_at" placeholder="ex: 2019/01/01" onChange={this.onChangePayedAt} /></div>
 					<div className="col-sm-3">
-						<button className="btn btn-primary" onClick={this.onClicked}>追加</button>
+						<button className="btn btn-primary" onClick={this.onClick}>追加</button>
 					</div>
 		  </div>
 		);
 	}
-	onClicked() {
+	onClick() {
 			const payload = {
 				name :this.state.name,
 				value :this.state.value,
 				payed_at :this.state.payed_at,
-			}
-			console.log(payload);
+			};
+			this.props.onRegisterClick(payload);
 	}
 
 	onChangeName(event) {
