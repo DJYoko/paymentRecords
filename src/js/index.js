@@ -9,10 +9,11 @@ export class Container extends React.Component {
     super(props);
   }
   render() {
+		const _state = store.getState();
     return (
 			<div>
 				root element here
-				<PaymentList state={store.getState()} />
+				<PaymentList payments={_state.payments} />
 			</div>
     );
   }
