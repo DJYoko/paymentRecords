@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 import store from './store';
 import {PaymentList} from './components/PaymentList';
 import {Register} from './components/Register';
-import { Provider } from 'react-redux';
 import { addPayment } from './actions/';
-import { payments } from './reducers/';
 
 export class Container extends React.Component {
   constructor(props) {
