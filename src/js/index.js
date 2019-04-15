@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import store from './store';
 import {PaymentList} from './components/PaymentList';
 import {Register} from './components/Register';
+import { Provider } from 'react-redux'
 
 export class Container extends React.Component {
   constructor(props) {
@@ -43,4 +44,15 @@ export class Container extends React.Component {
 	}
 }
 
-ReactDOM.render(<Container />, document.getElementById('app'));
+const renderRoot = Component => {
+	ReactDOM.render(
+		<Component />,
+		document.getElementById('app')
+	);
+};
+
+// init render
+renderRoot(Container);
+
+// refresh
+store.subscribe(() => renderRoot(Container));
