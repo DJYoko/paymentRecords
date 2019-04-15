@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import store from './store';
 import {PaymentList} from './components/PaymentList';
 import {Register} from './components/Register';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
+import { addPayment } from './actions/';
 
 export class Container extends React.Component {
   constructor(props) {
@@ -39,8 +40,7 @@ export class Container extends React.Component {
     });
 	}
 	onRegisterClick(payload) {
-		console.log(payload);
-		// call Action, dispatch
+		store.dispatch(addPayment(payload));
 	}
 }
 

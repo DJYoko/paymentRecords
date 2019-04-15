@@ -1,3 +1,5 @@
+import { ADD_PAYMENT } from '../actions/';
+
 const initialState = {
 	payments: [
 	 {
@@ -49,7 +51,15 @@ const initialState = {
 	}
 }
 
+const payments = (state = initialState, action) => {
+	switch(action.type) {
+			case 'ADD_PAYMENT':
+			console.log(action, state);
+				return state;
 
-export default (state = initialState, action) => {
-	return state
+	default:
+		return state
+	}
 }
+
+export default payments;
