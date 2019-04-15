@@ -6,6 +6,7 @@ import {PaymentList} from './components/PaymentList';
 import {Register} from './components/Register';
 import { Provider } from 'react-redux';
 import { addPayment } from './actions/';
+import { payments } from './reducers/';
 
 export class Container extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ export class Container extends React.Component {
   }
   render() {
 		const _state = store.getState();
-		const moneyArray = _state.payments.map((payment)=>{
+		const moneyArray = _state.map((payment)=>{
 				return payment.value;
 		})
 		const total = this.sum(moneyArray);
@@ -25,7 +26,7 @@ export class Container extends React.Component {
 					<div className="col-xs-6"><h4>{total}</h4></div>
 				</div>
 				<Register onRegisterClick={this.onRegisterClick} />
-				<PaymentList payments={_state.payments} />
+				<PaymentList payments={_state} />
 			</div>
     );
   }

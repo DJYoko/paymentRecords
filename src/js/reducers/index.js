@@ -1,7 +1,6 @@
 import { ADD_PAYMENT } from '../actions/';
 
-const initialState = {
-	payments: [
+const initPayments = [
 	 {
 	   "id": 1,
 	   "name": "初期値",
@@ -44,19 +43,18 @@ const initialState = {
 	 "value": -28010,
 	 "payed_at": "2019-01-24 00:00:00"
  }
-	],
-	term:{
-		start: 0,
-		end: 0,
-	}
-}
+];
 
-const payments = (state = initialState, action) => {
+const payments = (state = initPayments, action) => {
 	switch(action.type) {
 			case 'ADD_PAYMENT':
-			console.log(action, state);
-				return state;
-
+			const mergedState = state.concat([{
+			 "id": 8,
+			 "name": action.name,
+			 "value": action.value,
+			 "payed_at": action.payed_at,
+		 }])
+				return mergedState;
 	default:
 		return state
 	}
