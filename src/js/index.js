@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import store from './store';
 import {PaymentList} from './components/PaymentList';
 import {Register} from './components/Register';
+import {Total} from './components/Total';
 import { addPayment } from './actions/';
 
 export class Container extends React.Component {
@@ -13,16 +14,10 @@ export class Container extends React.Component {
   }
   render() {
 		const _state = store.getState();
-		const moneyArray = _state.map((payment)=>{
-				return payment.value;
-		})
-		const total = this.sum(moneyArray);
+
     return (
 			<div>
-				<div className="row">
-					<div className="col-xs-6"><h4>Current Total:</h4></div>
-					<div className="col-xs-6"><h4>{total}</h4></div>
-				</div>
+				<Total payments={_state} />
 				<Register onRegisterClick={this.onRegisterClick} />
 				<PaymentList payments={_state} />
 			</div>
@@ -33,12 +28,9 @@ export class Container extends React.Component {
 				return start <= payment.payed_at  && payment.payed_at <= end;
 		});
 	}
-	sum(arr) {
-		return arr.reduce(function(prev, current, i, arr) {
-        return prev+current;
-    });
-	}
 	onRegisterClick(payload) {
+		const sendData = payload;
+		sendData.value = parseInt(sendData.value);
 		store.dispatch(addPayment(payload));
 	}
 }
