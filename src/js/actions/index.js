@@ -7,7 +7,9 @@ export const addPayment = (payload) => {
   return {
     type: 'ADD_PAYMENT',
     id: nextTodoId++,
-    name: payload.name
+    name: payload.name,
+    value: payload.value,
+    payed_at: payload.payed_at,
   }
 }
 
