@@ -19,12 +19,15 @@ export class PaymentList extends Component {
 				</div>
 			)
 		}
-		const sortedPayents = this.props.payments.sort(this.sortByDate);
-		const moneyArray = this.props.payments.map((payment) => {
+
+		// TODO refactor => sort by date should Running on Reducer (the payment datas are used other components.)
+
+		const sortedPayments = this.props.payments.sort(this.sortByDate);
+		const paymentValues = this.props.payments.map((payment) => {
 			return payment.value;
 		});
-		const total = util.sum(moneyArray);
-		let cash = total;
+		const total = util.sum(paymentValues);
+		let balance = total;
 
 		return (
 			<div className="list-group">
@@ -41,15 +44,15 @@ export class PaymentList extends Component {
 					</div>
 				</div>
 				<div className="scroller">
-					{sortedPayents.map((payment, i) => {
-						const beforeCash = cash;
-						cash = cash - payment.value;
+					{sortedPayments.map((payment, i) => {
+						const beforeBalance = balance;
+						balance = balance - payment.value;
 						return <Payment key={i}
 							id={payment.id}
 							value={payment.value}
 							name={payment.name}
 							payed_at={payment.payed_at}
-							cash={beforeCash}
+							balance={beforeBalance}
 						></Payment>;
 					})}
 				</div>
