@@ -9,19 +9,22 @@ export class Payment extends Component {
 	}
 	render() {
 		const displayCost = util.commaSeparate(this.props.value);
-		const displayCash = util.commaSeparate(this.props.cash);
+		const displayBalance = util.commaSeparate(this.props.balance);
 		return (
 			<div className="list-group-item">
 				<div className="row" id={this.props.id}>
-					<div className="col-xs-6 col-sm-2">{this.props.payed_at}</div>
+					<div className="col-xs-6 col-sm-2">
+						{this.props.payed_at}
+					</div>
 					<div className="col-xs-6 col-sm-2 text-right pull-right" >
-						{displayCash}
+						{displayBalance}
 					</div>
 					<div className="col-xs-6 col-sm-2 text-right pull-right" style={this.valueStyle()}>
 						{displayCost}
 					</div>
-					
-					<div className="col-xs-6 col-sm-6">{this.props.name}</div>
+					<div className="col-xs-6 col-sm-6">
+						{this.props.name}
+					</div>
 				</div>
 			</div>
 		);
