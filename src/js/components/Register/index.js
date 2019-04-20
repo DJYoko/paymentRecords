@@ -22,15 +22,16 @@ export class Register extends Component {
 				<h4>add income or expense</h4>
 				<div className="row">
 					<div className="grid col-sm-4">
-						<input className="form-control" type="text" name="name" placeholder="name" onChange={this.onChangeName} />
+						<input ref="inputName" className="form-control" type="text" name="name" placeholder="name" onChange={this.onChangeName} />
 					</div>
 					<div className="grid col-sm-3">
-						<div className="input-group"><input className="form-control text-right" type="number" name="value" placeholder="ex: 10000" onChange={this.onChangeValue} />
+						<div className="input-group">
+							<input ref="inputValue" className="form-control text-right" type="number" name="value" placeholder="ex: 10000" onChange={this.onChangeValue} />
 							<span className="input-group-addon">JPY</span>
 						</div>
 					</div>
 					<div className="grid col-sm-3">
-						<input className="form-control" type="date" name="payed_at" placeholder="ex: 2019/01/01" onChange={this.onChangePayedAt} />
+						<input ref="inputPayedAt" className="form-control" type="date" name="payed_at" placeholder="ex: 2019/01/01" onChange={this.onChangePayedAt} />
 					</div>
 					<div className="grid col-sm-2">
 						<button className={'btn btn-primary btn-block ' + this.buttonStyle()} onClick={this.onClick} disabled={this.buttonDisabled()}>Save</button>
@@ -48,6 +49,7 @@ export class Register extends Component {
 			payed_at: this.state.payed_at,
 		};
 		this.props.onRegisterClick(payload);
+		this.clearState();
 	}
 
 	onChangeName(event) {
@@ -91,6 +93,17 @@ export class Register extends Component {
 
 	buttonDisabled() {
 		return (this.isSubmittable()) ? false : true;
+	}
+
+	clearState() {
+		this.setState({
+			name: '',
+			value: '',
+			payed_at: '',
+		});
+		this.refs.inputName.value = '';
+		this.refs.inputValue.value = '';
+		this.refs.inputPayedAt.value = '';
 	}
 
 }
