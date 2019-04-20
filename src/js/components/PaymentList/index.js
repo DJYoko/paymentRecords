@@ -15,7 +15,7 @@ export class PaymentList extends Component {
 		if (this.props.payments === null) {
 			return (
 				<div>
-					入出金情報がありません
+					there are no payment records.
 				</div>
 			)
 		}
