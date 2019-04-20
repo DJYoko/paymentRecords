@@ -55,7 +55,7 @@ const payments = (state = initPayments, action) => {
 	switch (action.type) {
 		case 'ADD_PAYMENT':
 			const mergedState = state.concat([{
-				'id': 8,
+				'id': '',
 				'name': action.name,
 				'value': action.value,
 				'payed_at': action.payed_at,
