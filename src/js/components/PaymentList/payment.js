@@ -21,7 +21,7 @@ export class Payment extends Component {
 	}
 	valueStyle() {
 		return {
-			color: (this.props.value < 0) ? '#f00' : 'auto',
+			color: (this.props.value < 0) ? '#f00' : '',
 		}
 	}
 }

@@ -13,12 +13,13 @@ export class PaymentList extends Component {
 			return (
 				<div>
 					入出金情報がありません
-					</div>
+				</div>
 			)
 		}
+		const sortedPayents = this.props.payments.sort(this.sortByDate);
 		return (
 			<div className="list-group">
-				{this.props.payments.map((payment, i) => {
+				{sortedPayents.map((payment, i) => {
 					return <Payment key={i}
 						id={payment.id}
 						value={payment.value}
@@ -30,5 +31,8 @@ export class PaymentList extends Component {
 				})}
 			</div>
 		);
+	}
+	sortByDate(a, b) {
+		return new Date(a.payed_at) - new Date(b.payed_at);
 	}
 }
