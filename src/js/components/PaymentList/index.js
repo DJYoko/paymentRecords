@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import PropTypes from 'prop-types';
 import { Payment } from './payment';
+import util from '../../util';
+import _JSXStyle from 'styled-jsx/style';
+import css from 'styled-jsx/css';
 
 export class PaymentList extends Component {
 	constructor(props) {
@@ -17,22 +20,55 @@ export class PaymentList extends Component {
 			)
 		}
 		const sortedPayents = this.props.payments.sort(this.sortByDate);
+		const moneyArray = this.props.payments.map((payment) => {
+			return payment.value;
+		});
+		const total = util.sum(moneyArray);
+		let cash = total;
+
 		return (
 			<div className="list-group">
-				{sortedPayents.map((payment, i) => {
-					return <Payment key={i}
-						id={payment.id}
-						value={payment.value}
-						name={payment.name}
-						payed_at={payment.payed_at}
-					>
-						list component here
-				</Payment>;
-				})}
+				<div className="list-group-item header">
+					<div className="row">
+						<div className="col-xs-6 col-sm-2">日付</div>
+						<div className="col-xs-6 col-sm-2 text-right pull-right" >
+							残高
+						</div>
+						<div className="col-xs-6 col-sm-2 text-right pull-right">
+							入出金額
+						</div>
+						<div className="col-xs-6 col-sm-6">名目</div>
+					</div>
+				</div>
+				<div className="scroller">
+					{sortedPayents.map((payment, i) => {
+						const beforeCash = cash;
+						cash = cash - payment.value;
+						return <Payment key={i}
+							id={payment.id}
+							value={payment.value}
+							name={payment.name}
+							payed_at={payment.payed_at}
+							cash={beforeCash}
+						></Payment>;
+					})}
+				</div>
+				<style jsx>{styles}</style>
 			</div>
 		);
 	}
 	sortByDate(a, b) {
-		return new Date(a.payed_at) - new Date(b.payed_at);
+		return new Date(b.payed_at) - new Date(a.payed_at);
 	}
 }
+
+const styles = css`
+	.header{
+		background-color: #eee;
+		font-weight: bold;
+	}
+	.scroller{
+		height: 400px;
+		overflow-x:hidden;
+	}
+`;

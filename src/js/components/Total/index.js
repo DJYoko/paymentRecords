@@ -10,7 +10,7 @@ export class Total extends Component {
 	render() {
 		const moneyArray = this.props.payments.map((payment) => {
 			return payment.value;
-		})
+		});
 		const total = util.sum(moneyArray);
 		const totalCommaSeparated = util.commaSeparate(total);
 		return (
