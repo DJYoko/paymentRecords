@@ -30,14 +30,14 @@ export class PaymentList extends Component {
 			<div className="list-group">
 				<div className="list-group-item header">
 					<div className="row">
-						<div className="col-xs-6 col-sm-2">日付</div>
+						<div className="col-xs-6 col-sm-2">Date</div>
 						<div className="col-xs-6 col-sm-2 text-right pull-right" >
-							残高
+							Balance
 						</div>
 						<div className="col-xs-6 col-sm-2 text-right pull-right">
-							入出金額
+							Amount
 						</div>
-						<div className="col-xs-6 col-sm-6">名目</div>
+						<div className="col-xs-6 col-sm-6">Name</div>
 					</div>
 				</div>
 				<div className="scroller">
