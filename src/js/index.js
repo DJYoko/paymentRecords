@@ -17,8 +17,8 @@ export class Container extends React.Component {
 
 		return (
 			<div>
-				<Total payments={_state} />
 				<Register onRegisterClick={this.onRegisterClick} />
+				<Total payments={_state} />
 				<PaymentList payments={_state} />
 			</div>
 		);
