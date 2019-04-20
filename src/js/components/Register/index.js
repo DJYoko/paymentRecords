@@ -24,7 +24,7 @@ export class Register extends Component {
 						<input className="form-control" type="text" name="name" placeholder="name" onChange={this.onChangeName} />
 					</div>
 					<div className="grid col-sm-3">
-						<div className="input-group"><input className="form-control" type="number" name="value" placeholder="ex: 10000" onChange={this.onChangeValue} />
+						<div className="input-group"><input className="form-control text-right" type="number" name="value" placeholder="ex: 10000" onChange={this.onChangeValue} />
 							<span className="input-group-addon">円</span>
 						</div>
 					</div>
