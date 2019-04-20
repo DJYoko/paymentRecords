@@ -17,7 +17,7 @@ export class PaymentList extends Component {
 			)
 		}
 		return (
-			<div>
+			<div className="list-group">
 				{this.props.payments.map((payment, i) => {
 					return <Payment key={i}
 						id={payment.id}
