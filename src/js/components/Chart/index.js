@@ -37,9 +37,12 @@ export class Chart extends Component {
 				</div>
 			)
 		}
-		const sortedPayents = this.props.payments.sort(this.sortByDate);
+		const sortedPayments = this.props.payments.sort(this.sortByDate);
 
-		// TODO calc first and last date
+		const dateFirst = sortedPayments[0].payed_at;
+		const dateLast = sortedPayments[sortedPayments.length - 1].payed_at;
+
+		console.log(dateFirst, dateLast);
 
 		// TODO create array of whole dates of the term => use as chartData.label
 
@@ -57,7 +60,7 @@ export class Chart extends Component {
 		);
 	}
 	sortByDate(a, b) {
-		return new Date(b.payed_at) - new Date(a.payed_at);
+		return new Date(a.payed_at) - new Date(b.payed_at);
 	}
 	cashFlow(date, cash) {
 		return {
