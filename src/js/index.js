@@ -5,6 +5,7 @@ import store from './store';
 import { addPayment } from './actions/';
 import { PaymentList } from './components/PaymentList';
 import { Register } from './components/Register';
+import { Chart } from './components/Chart';
 import { Total } from './components/Total';
 
 export class Container extends React.Component {
@@ -20,6 +21,7 @@ export class Container extends React.Component {
 				<Register onRegisterClick={this.onRegisterClick} />
 				<Total payments={_state} />
 				<PaymentList payments={_state} />
+				<Chart payments={_state} />
 			</div>
 		);
 	}
