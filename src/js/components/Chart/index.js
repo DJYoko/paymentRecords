@@ -5,6 +5,7 @@ import util from '../../util';
 import _JSXStyle from 'styled-jsx/style';
 import css from 'styled-jsx/css';
 import { Line } from 'react-chartjs';
+import moment from 'moment';
 
 const chartDataWrapper = {
 	labels: [/* dates set*/],
@@ -37,13 +38,12 @@ export class Chart extends Component {
 				</div>
 			)
 		}
-		const sortedPayments = this.props.payments.sort(util.sortByPayedAt);
 
+		const sortedPayments = this.props.payments.sort(util.sortByPayedAt);
 		const dateFirst = sortedPayments[0].payed_at;
 		const dateLast = sortedPayments[sortedPayments.length - 1].payed_at;
-
-		console.log(dateFirst, dateLast);
-
+		const wholeDates = this.getAllDatesInTerm(new Date(dateFirst), new Date(dateLast));
+		
 		// TODO create array of whole dates of the term => use as chartData.label
 
 		// TODO calc balance of each date in whole dates of the term  => use as chartData.datasets.data
@@ -64,6 +64,17 @@ export class Chart extends Component {
 			date: date,
 			cash: cash,
 		}
+	}
+	getAllDatesInTerm(startDatetimeObject, lastDatetimeObject) {
+		const allDates = [];
+		const lastDate = moment(lastDatetimeObject);
+		let countDate = moment(startDatetimeObject);
+		while (!moment(countDate).isSame(lastDate)) {
+			allDates.push(moment(countDate).format('YYYY-MM-DD'));
+			countDate = countDate.add('days', 1);
+		}
+		allDates.push(moment(lastDatetimeObject).format('YYYY-MM-DD'));
+		return allDates;
 	}
 }
 
