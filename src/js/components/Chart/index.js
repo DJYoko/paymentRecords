@@ -11,7 +11,7 @@ const chartDataWrapper = {
 	labels: [/* dates set*/],
 	datasets: [
 		{
-			fillColor:[ 'rgba(0,0,255,0.1)'],
+			fillColor: ['rgba(0,0,255,0.1)'],
 			fill: false,
 			pointHoverRadius: 2,
 			pointRadius: 1,
@@ -31,7 +31,8 @@ const options = {
 				beginAtZero: true
 			}
 		}]
-	}
+	},
+	tooltipTemplate: '<%= value  %>',
 };
 
 export class Chart extends Component {
@@ -86,7 +87,7 @@ export class Chart extends Component {
 		let currentBalance = 0;
 		allDates.forEach(date => {
 			payments.forEach(payment => {
-				if(date === payment.payed_at){
+				if (date === payment.payed_at) {
 					currentBalance += payment.value;
 				}
 			});
@@ -100,5 +101,6 @@ const styles = css`
 	.chart-wrapper {
 		min-height: 60px;
 		border: 1px solid #cccccc;
+		padding: 10px;
 	}
 `;
