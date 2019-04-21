@@ -71,7 +71,7 @@ const styles = css`
 		font-weight: bold;
 	}
 	.scroller{
-		height: 400px;
+		max-height: 400px;
 		overflow-x:hidden;
 	}
 `;
