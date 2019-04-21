@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import store from './store';
+import { addPayment } from './actions/';
 import { PaymentList } from './components/PaymentList';
 import { Register } from './components/Register';
 import { Total } from './components/Total';
-import { addPayment } from './actions/';
 
 export class Container extends React.Component {
 	constructor(props) {
