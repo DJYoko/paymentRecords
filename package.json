@@ -22,6 +22,7 @@
 		"babel-loader": "^7.1.5",
 		"babel-preset-es2015": "^6.24.1",
 		"babel-preset-react": "^6.24.1",
+		"react-chartjs": "^1.2.0",
 		"react-redux": "^6.0.1",
 		"redux": "^4.0.1",
 		"webpack": "^4.29.5",
