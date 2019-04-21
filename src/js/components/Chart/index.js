@@ -11,6 +11,7 @@ const chartDataWrapper = {
 	labels: [/* dates set*/],
 	datasets: [
 		{
+			fillColor:[ 'rgba(0,0,255,0.1)'],
 			fill: false,
 			pointHoverRadius: 2,
 			pointRadius: 1,
@@ -24,6 +25,13 @@ const chartDataWrapper = {
 const options = {
 	maintainAspectRatio: false,
 	responsive: true,
+	scales: {
+		yAxes: [{
+			ticks: {
+				beginAtZero: true
+			}
+		}]
+	}
 };
 
 export class Chart extends Component {
@@ -46,10 +54,8 @@ export class Chart extends Component {
 		const allBalances = this.getAllBalanceInTerm(allDates, sortedPayments);
 
 		const chartData = chartDataWrapper;
-		chartData.label = allDates;
-		chartData.datasets.data = allBalances;
-
-		console.log(chartData);
+		chartData.labels = allDates;
+		chartData.datasets[0].data = allBalances;
 
 		return (
 			<div className="chart-wrapper">
@@ -86,7 +92,6 @@ export class Chart extends Component {
 			});
 			allBalances.push(currentBalance);
 		});
-
 		return allBalances;
 	}
 }
