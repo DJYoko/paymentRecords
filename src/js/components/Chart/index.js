@@ -42,15 +42,14 @@ export class Chart extends Component {
 		const sortedPayments = this.props.payments.sort(util.sortByPayedAt);
 		const dateFirst = sortedPayments[0].payed_at;
 		const dateLast = sortedPayments[sortedPayments.length - 1].payed_at;
-		const wholeDates = this.getAllDatesInTerm(new Date(dateFirst), new Date(dateLast));
-		
-		// TODO create array of whole dates of the term => use as chartData.label
-
-		// TODO calc balance of each date in whole dates of the term  => use as chartData.datasets.data
+		const allDates = this.getAllDatesInTerm(new Date(dateFirst), new Date(dateLast));
+		const allBalances = this.getAllBalanceInTerm(allDates, sortedPayments);
 
 		const chartData = chartDataWrapper;
-		chartData.label = [];
-		chartData.datasets.data = [];
+		chartData.label = allDates;
+		chartData.datasets.data = allBalances;
+
+		console.log(chartData);
 
 		return (
 			<div className="chart-wrapper">
@@ -75,6 +74,20 @@ export class Chart extends Component {
 		}
 		allDates.push(moment(lastDatetimeObject).format('YYYY-MM-DD'));
 		return allDates;
+	}
+	getAllBalanceInTerm(allDates, payments) {
+		const allBalances = [];
+		let currentBalance = 0;
+		allDates.forEach(date => {
+			payments.forEach(payment => {
+				if(date === payment.payed_at){
+					currentBalance += payment.value;
+				}
+			});
+			allBalances.push(currentBalance);
+		});
+
+		return allBalances;
 	}
 }
 
