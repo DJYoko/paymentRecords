@@ -37,7 +37,7 @@ export class Chart extends Component {
 				</div>
 			)
 		}
-		const sortedPayments = this.props.payments.sort(this.sortByDate);
+		const sortedPayments = this.props.payments.sort(util.sortByPayedAt);
 
 		const dateFirst = sortedPayments[0].payed_at;
 		const dateLast = sortedPayments[sortedPayments.length - 1].payed_at;
@@ -58,9 +58,6 @@ export class Chart extends Component {
 				<style jsx>{styles}</style>
 			</div>
 		);
-	}
-	sortByDate(a, b) {
-		return new Date(a.payed_at) - new Date(b.payed_at);
 	}
 	cashFlow(date, cash) {
 		return {

@@ -22,7 +22,7 @@ export class PaymentList extends Component {
 
 		// TODO refactor => sort by date should Running on Reducer (the payment datas are used other components.)
 
-		const sortedPayments = this.props.payments.sort(this.sortByDate);
+		const sortedPayments = this.props.payments.sort(util.sortByPayedAt).reverse();
 		const paymentValues = this.props.payments.map((payment) => {
 			return payment.value;
 		});
@@ -59,9 +59,6 @@ export class PaymentList extends Component {
 				<style jsx>{styles}</style>
 			</div>
 		);
-	}
-	sortByDate(a, b) {
-		return new Date(b.payed_at) - new Date(a.payed_at);
 	}
 }
 
