@@ -9,8 +9,8 @@ const chartDataWrapper = {
 	labels: [/* dates set*/],
 	datasets: [
 		{
-			fillColor: ['rgba(0,0,255,0.1)'],
-			fill: false,
+			label: '',
+			fill: true,
 			pointHoverRadius: 2,
 			pointRadius: 1,
 			pointHitRadius: 10,
@@ -22,15 +22,13 @@ const chartDataWrapper = {
 
 const options = {
 	maintainAspectRatio: false,
-	responsive: true,
 	scales: {
 		yAxes: [{
 			ticks: {
-				beginAtZero: true
+				min: 0,
 			}
 		}]
-	},
-	tooltipTemplate: '<%= value  %>',
+	}
 };
 
 export class Chart extends Component {
@@ -59,7 +57,9 @@ export class Chart extends Component {
 		return (
 			<div className="chart-wrapper">
 				<h3>Cash Flow</h3>
-				<Line data={chartData} options={options} width="100%" height="250" />
+				<div className="line-wrapper">
+					<Line data={chartData} options={options} />
+				</div>
 				<style jsx>{styles}</style>
 			</div>
 		);
@@ -106,5 +106,9 @@ const styles = css`
 	}
 	h3 {
 		margin-top: 0;
+	}
+	.line-wrapper {
+		width: 100%;
+		height: 300px;
 	}
 `;
