@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import _JSXStyle from 'styled-jsx/style';
 import css from 'styled-jsx/css';
 

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-import PropTypes from 'prop-types';
 import util from '../../util';
 import _JSXStyle from 'styled-jsx/style';
 import css from 'styled-jsx/css';
