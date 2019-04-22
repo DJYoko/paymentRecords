@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import util from '../../util';
 import _JSXStyle from 'styled-jsx/style';
 import css from 'styled-jsx/css';
-import { Line } from 'react-chartjs';
+import { Line } from 'react-chartjs-2';
 import moment from 'moment';
 
 const chartDataWrapper = {
