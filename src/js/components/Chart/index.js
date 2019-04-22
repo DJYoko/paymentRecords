@@ -60,6 +60,7 @@ export class Chart extends Component {
 
 		return (
 			<div className="chart-wrapper">
+				<h3>Cash Flow</h3>
 				<Line data={chartData} options={options} width="100%" height="250" />
 				<style jsx>{styles}</style>
 			</div>
@@ -100,7 +101,12 @@ export class Chart extends Component {
 const styles = css`
 	.chart-wrapper {
 		min-height: 60px;
-		border: 1px solid #cccccc;
-		padding: 10px;
+		border: 1px solid #dddddd;
+		padding: 16px;
+		border-radius: 4px;
+		margin-bottom: 20px;
+	}
+	h3 {
+		margin-top: 0;
 	}
 `;

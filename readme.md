@@ -1,4 +1,4 @@
-# payment record
+# Payment records
 
 a simple demo of React / Redux.
 

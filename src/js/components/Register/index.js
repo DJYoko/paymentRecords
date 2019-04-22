@@ -112,8 +112,10 @@ export class Register extends Component {
 const styles = css`
 	.register {
 		background-color: #eeeeee;
+		border:1px solid #dddddd;
 		padding: 12px 12px 0;
 		margin-bottom: 20px;
+		border-radius: 4px;
 	}
 	.grid {
 		padding-bottom: 12px;
