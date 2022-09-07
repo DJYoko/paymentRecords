@@ -35,7 +35,6 @@
 		"react": "^16.14.0",
 		"react-chartjs-2": "^2.11.2",
 		"react-dom": "^16.14.0",
-		"react-leaflet": "^2.8.0",
 		"styled-jsx": "^3.4.7"
 	}
 }
