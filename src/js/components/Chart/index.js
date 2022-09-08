@@ -76,7 +76,7 @@ export class Chart extends Component {
 		let countDate = moment(startDatetimeObject);
 		while (!moment(countDate).isSame(lastDate)) {
 			allDates.push(moment(countDate).format('YYYY-MM-DD'));
-			countDate = countDate.add('days', 1);
+			countDate = countDate.add(1, 'days');
 		}
 		allDates.push(moment(lastDatetimeObject).format('YYYY-MM-DD'));
 		return allDates;
