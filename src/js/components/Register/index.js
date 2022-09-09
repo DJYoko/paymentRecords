@@ -75,6 +75,11 @@ export class Register extends Component {
             value: this.state.value,
             payed_at: this.state.payed_at,
         }
+
+        if (isFinite(this.state.value)) {
+            payload.value = parseInt(payload.value)
+        }
+
         this.props.onRegisterClick(payload)
         this.clearState()
     }
