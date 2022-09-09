@@ -15,6 +15,5 @@ export const addPayment = (payload) => {
 
 const getLargestPaymentId = () => {
     const _state = store.getState()
-    console.log(_state)
     return 1
 }
