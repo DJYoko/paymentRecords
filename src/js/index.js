@@ -30,8 +30,6 @@ export class Container extends React.Component {
         })
     }
     onRegisterClick(payload) {
-        const sendData = payload
-        sendData.value = parseInt(sendData.value)
         store.dispatch(addPayment(payload))
     }
 }

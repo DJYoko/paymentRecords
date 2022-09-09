@@ -14,4 +14,10 @@ module.exports = {
             return prev + current
         })
     },
+    zeroPadding: (NUM, LEN) => {
+        if (typeof NUM !== 'number' || typeof LEN !== 'number') {
+            return ''
+        }
+        return (Array(LEN).join('0') + NUM).slice(-LEN)
+    },
 }
