@@ -8,51 +8,9 @@ const currentMonth = util.zeroPadding(now.getMonth() + 1, 2)
 const initPayments = [
     {
         id: 1,
-        name: '初期値',
-        value: 100000,
+        name: 'init money',
+        value: 0,
         payed_at: `${currentYear}-${currentMonth}-01`,
-    },
-    {
-        id: 2,
-        name: '1月度給与振り込',
-        value: 441216,
-        payed_at: `${currentYear}-${currentMonth}-10`,
-    },
-    {
-        id: 3,
-        name: '食費・消耗品',
-        value: -80000,
-        payed_at: `${currentYear}-${currentMonth}-11`,
-    },
-    {
-        id: 4,
-        name: '電気ガス水道ネット',
-        value: -29233,
-        payed_at: `${currentYear}-${currentMonth}-20`,
-    },
-    {
-        id: 5,
-        name: '交際費',
-        value: -8982,
-        payed_at: `${currentYear}-${currentMonth}-20`,
-    },
-    {
-        id: 6,
-        name: '住宅ローン',
-        value: -98982,
-        payed_at: `${currentYear}-${currentMonth}-31`,
-    },
-    {
-        id: 7,
-        name: '養育費',
-        value: -28010,
-        payed_at: `${currentYear}-${currentMonth}-24`,
-    },
-    {
-        id: 8,
-        name: '児童手当振込',
-        value: 35000,
-        payed_at: `${currentYear}-${currentMonth}-31`,
     },
 ]
 
